@@ -1,0 +1,214 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Amiri:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default Dark Mode (Black/Charcoal) */
+@layer base {
+  :root {
+    /* Font Variables */
+    --font-inter: 'Inter', sans-serif;
+    --font-amiri: 'Amiri', serif; /* Arabic-style font */
+
+    /* Dark Theme Palette */
+    --background: 220 15% 5%; /* Very Dark Charcoal/Near Black */
+    --foreground: 210 20% 98%; /* White */
+
+    --card: 220 15% 10%; /* Slightly Lighter Charcoal for cards */
+    --card-foreground: 210 20% 98%; /* White */
+
+    --popover: 220 15% 8%; /* Dark Popover */
+    --popover-foreground: 210 20% 98%; /* White */
+
+    --primary: 142.1 76.2% 36.3%; /* Green - Actions, Progress, Hope */
+    --primary-foreground: 210 20% 98%; /* White */
+
+    --secondary: 215 27.9% 16.9%; /* Dark Gray - Less used, subtle elements */
+    --secondary-foreground: 210 20% 98%; /* White */
+
+    --muted: 215 27.9% 16.9%; /* Dark Gray */
+    --muted-foreground: 217.9 10.6% 64.9%; /* Lighter Gray */
+
+    --accent: 0 72.2% 50.6%; /* Red - Emergency, Alerts, Urgency */
+    --accent-foreground: 210 20% 98%; /* White */
+
+    --destructive: 0 62.8% 40.0%; /* Darker Red for destructive actions (can be same as accent) */
+    --destructive-foreground: 210 20% 98%; /* White */
+
+    /* Define border colors using HSL variables */
+    --border-primary: hsl(var(--primary)); /* Green */
+    --border-accent: hsl(var(--accent)); /* Red */
+    --border: hsl(215, 27.9%, 25%); /* Default subtle border HSL value */
+
+    --input: 215 27.9% 10.9%; /* Dark Gray Input background */
+    --ring: 142.1 76.2% 36.3%; /* Green for focus rings */
+
+    /* Chart Colors (if needed) */
+    --chart-1: 142.1 76.2% 36.3%; /* Green */
+    --chart-2: 0 72.2% 50.6%; /* Red */
+    --chart-3: 217.9 10.6% 64.9%;  /* Grey */
+    --chart-4: 142.1 76.2% 46.3%; /* Lighter Green */
+    --chart-5: 0 72.2% 60.6%; /* Lighter Red */
+
+    --radius: 0rem; /* Ensure square edges globally */
+  }
+
+  /* Light mode override (structure only, not implemented) */
+  .light {
+      --background: 0 0% 100%;
+      --foreground: 224 71.4% 4.1%;
+      --card: 0 0% 100%;
+      --card-foreground: 224 71.4% 4.1%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 224 71.4% 4.1%;
+      --primary: 142.1 76.2% 36.3%;
+      --primary-foreground: 210 20% 98%;
+      --secondary: 220 14.3% 95.9%;
+      --secondary-foreground: 224 71.4% 4.1%;
+      --muted: 220 14.3% 95.9%;
+      --muted-foreground: 220 8.9% 46.1%;
+      --accent: 0 72.2% 50.6%;
+      --accent-foreground: 210 20% 98%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 20% 98%;
+      --border-primary: hsl(142.1, 76.2%, 36.3%);
+      --border-accent: hsl(0, 72.2%, 50.6%);
+      --border: hsl(215, 20.2%, 92.2%); /* Light mode default border */
+      --input: 215 20.2% 92.2%;
+      --ring: 142.1 76.2% 36.3%;
+      --chart-1: 142.1 76.2% 36.3%;
+      --chart-2: 0 72.2% 50.6%;
+      --chart-3: 220 8.9% 46.1%;
+      --chart-4: 142.1 76.2% 46.3%;
+      --chart-5: 0 72.2% 60.6%;
+      --radius: 0rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    @apply select-none; /* Disable text selection globally */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+  }
+
+  /* Ensure square edges and remove default shadows globally */
+  button, input, textarea, select, .card, dialog, [role="dialog"], [data-radix-dialog-content], [data-radix-alert-dialog-content],
+  .alert, .popover, .tooltip, .sheet-content, .menu-content, [data-radix-select-content] {
+     @apply rounded-none shadow-none;
+  }
+
+  /* Apply border style for elements that need it */
+   input, textarea, select, .card, dialog, [role="dialog"], [data-radix-dialog-content], [data-radix-alert-dialog-content], .alert, [data-radix-select-trigger] {
+      @apply border border-border; /* Use the default border width/style/color */
+   }
+
+   /* Utility to remove border */
+   .border-none { @apply border-0; }
+
+
+   /* Neon Glow Hover Effect for Buttons */
+   .btn-hover-glow-green {
+     @apply transition-all duration-200;
+   }
+   .btn-hover-glow-green:hover:not(:disabled) {
+     box-shadow: 0 0 5px 1px hsl(var(--primary) / 0.7), /* Subtle outer glow */
+                 0 0 2px 0px hsl(var(--primary) / 0.5); /* Subtle inner glow */
+   }
+   .btn-hover-glow-red {
+       @apply transition-all duration-200;
+   }
+   .btn-hover-glow-red:hover:not(:disabled) {
+     box-shadow: 0 0 5px 1px hsl(var(--accent) / 0.7),
+                 0 0 2px 0px hsl(var(--accent) / 0.5);
+   }
+
+    /* Simple Border Hover (alternative to glow) */
+    .btn-hover-border-primary {
+       @apply transition-all duration-200 border border-transparent;
+    }
+   .btn-hover-border-primary:hover:not(:disabled) {
+       @apply border border-primary; /* Use primary CSS variable */
+    }
+     .btn-hover-border-accent {
+       @apply transition-all duration-200 border border-transparent;
+    }
+   .btn-hover-border-accent:hover:not(:disabled) {
+       @apply border border-accent; /* Use accent CSS variable */
+    }
+
+
+  /* Animation for Counters (Keep) */
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-count-up {
+    animation: count-up 0.3s ease-out forwards;
+  }
+
+  /* Ticker Animation (Keep if needed) */
+   @keyframes ticker-scroll {
+     0% { transform: translateX(100%); }
+     100% { transform: translateX(-100%); }
+   }
+   .animate-ticker-scroll {
+     animation: ticker-scroll 20s linear infinite;
+     white-space: nowrap;
+     overflow: hidden;
+     width: 100%;
+   }
+
+  /* Hover Zoom (Keep if needed) */
+  .hover-zoom {
+    transition: transform 0.3s ease-in-out;
+  }
+  .hover-zoom:hover {
+    transform: scale(1.05);
+  }
+
+  /* Modal overlay style */
+  [data-radix-dialog-overlay], [data-radix-alert-dialog-overlay] {
+      @apply bg-black/80 backdrop-blur-sm; /* Dark transparent overlay */
+  }
+
+  /* Modal content transition (slide-up from bottom) */
+   [data-state=open][data-radix-dialog-content],
+   [data-state=open][data-radix-alert-dialog-content] {
+      @apply animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:slide-in-from-bottom-10 sm:data-[state=open]:slide-in-from-bottom-0;
+   }
+
+    /* Loading Spinner (Basic Example) */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+
+    /* Indeterminate Loading Bar Animation */
+    @keyframes loading-bar-indeterminate {
+      0% { transform: translateX(-100%) scaleX(0.1); }
+      50% { transform: translateX(0%) scaleX(0.8); }
+      100% { transform: translateX(100%) scaleX(0.1); }
+    }
+    .animate-loading-bar-indeterminate {
+      animation: loading-bar-indeterminate 1.5s infinite ease-in-out;
+    }
+
+
+   h1, h2, h3, h4, h5, h6 {
+      @apply font-bold; /* Ensure headings are bold */
+   }
+
+   /* Apply Arabic font */
+    .font-arabic {
+        font-family: var(--font-amiri);
+    }
+
+}
