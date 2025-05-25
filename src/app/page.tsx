@@ -106,11 +106,27 @@ const DailyQuote = () => {
 
 // --- Adsterra Ad Links ---
 const adLinks = [
-    "https://www.profitableratecpm.com/crp7v4jp?key=ff9e01ea08a0a12664942c10934eea34",
-    "https://www.profitableratecpm.com/f7vwpq885?key=39fbb62899e96c54e2721de41252ce7f",
-    "https://www.profitableratecpm.com/pv6wuika?key=9cf3950caa9e298f4748843dc6fb71ed",
-    "https://www.profitableratecpm.com/muc9wnng?key=1f4577e4540d211e6b6c283abf7bbaba",
-    "https://www.profitableratecpm.com/a4bpcrdtj?key=d1f8578a4e81535945651207c28fea06",
+    "https://otieu.com/4/9373784",
+"https://otieu.com/4/9373783",
+"https://otieu.com/4/9373782",
+"https://otieu.com/4/9373781",
+"https://otieu.com/4/9373780",
+"https://otieu.com/4/9373779",
+"https://otieu.com/4/9373770",
+"https://otieu.com/4/9373769",
+"https://otieu.com/4/9373768",
+"https://otieu.com/4/9373767",
+"https://otieu.com/4/9373765",
+"https://otieu.com/4/9373764",
+"https://otieu.com/4/9373763",
+"https://otieu.com/4/9373762",
+"https://otieu.com/4/9373761",
+"https://otieu.com/4/9373760",
+"https://otieu.com/4/9373759",
+"https://otieu.com/4/9373758",
+"https://otieu.com/4/9373757",
+"https://otieu.com/4/9373756",
+
 ];
 
 // --- Crypto Wallet Data ---
